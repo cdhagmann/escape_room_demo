@@ -1,0 +1,58 @@
+{
+  "levels": [
+    {
+      "id": "level1",
+      "title": "The Mysterious Lab",
+      "story": "You find yourself locked in a strange laboratory. The door is sealed with an electronic lock that requires a password. On the desk, you notice a note with a riddle: \"I'm light as a feather, but even the strongest person cannot hold me for more than a few minutes.\"",
+      "password": "breath",
+      "hint": "Hint: What can't be held for long, no matter how strong you are?"
+    },
+    {
+      "id": "level2",
+      "title": "Hidden Files",
+      "story": "The screen flickers and reveals a hidden computer terminal. There seems to be important files locked behind another password. The terminal displays: \"To proceed, answer this: I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?\"",
+      "password": "map",
+      "hint": "Hint: Something you might use to navigate..."
+    },
+    {
+      "id": "level3",
+      "title": "The Final Code",
+      "story": "You've uncovered a secret file that contains coordinates to a hidden vault. But there's one last security measure. A prompt appears: \"What has keys but no locks, space but no room, and you can enter but not exit?\"",
+      "password": "keyboard",
+      "hint": "Hint: You're using one right now to type..."
+    }
+  ],
+  "success": {
+    "title": "Escape Successful!",
+    "message": "Congratulations! You've solved all the puzzles and escaped the mysterious lab. The secrets you've uncovered will change everything..."
+  }
+}
+{
+  "levels": [
+    {
+      "id": "level1",
+      "title": "The Sealed Chamber",
+      "story": "You find yourself in a dimly lit chamber with stone walls. A large door blocks your way, and an inscription above reads: 'I speak without a mouth and hear without ears. I have no body, but I come alive with the wind.'",
+      "password": "echo",
+      "hint": "Hint: Something you can hear but cannot see..."
+    },
+    {
+      "id": "level2",
+      "title": "The Ancient Vault",
+      "story": "Beyond the chamber, you enter a vast hall filled with ancient relics. A pedestal in the center holds a locked box, and a riddle is etched onto its surface: 'The more of me you take, the more you leave behind.'",
+      "password": "footsteps",
+      "hint": "Hint: Something left behind as you move..."
+    },
+    {
+      "id": "level3",
+      "title": "The Final Barrier",
+      "story": "Inside the vault, a golden door stands before you, with one final challenge inscribed: 'I can be cracked, made, told, and played. What am I?'",
+      "password": "joke",
+      "hint": "Hint: Something humorous, but also something that can be deciphered..."
+    }
+  ],
+  "success": {
+    "title": "Escape Complete!",
+    "message": "Congratulations! You have solved all the riddles and escaped the mysterious ruins. The knowledge you have gained will serve you well in the adventures to come..."
+  }
+}
