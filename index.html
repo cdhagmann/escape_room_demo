@@ -1,193 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escape Room Challenge</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
-            color: #f0f0f0;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin-top: 50px;
-        }
-        
-        h1, h2 {
-            color: #e0e0e0;
-        }
-        
-        .story-text {
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        
-        .password-form {
-            margin: 30px 0;
-        }
-        
-        input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            background-color: #3a3a3a;
-            color: #ffffff;
-            width: 250px;
-            margin-right: 10px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #663399;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #7e41bd;
-        }
-        
-        .hint {
-            font-style: italic;
-            color: #999999;
-            margin-top: 10px;
-        }
-        
-        .error-message {
-            color: #ff6b6b;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .success-message {
-            color: #6bff6b;
-            margin-top: 10px;
-        }
-        
-        .clue-image {
-            max-width: 100%;
-            border-radius: 4px;
-            margin: 20px 0;
-        }
-        
-        .shake {
-            animation: shake 0.5s;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <div id="game-container">
-        <!-- Levels will be dynamically loaded here -->
+<body class="min-h-screen bg-base-300">
+    <div class="drawer lg:drawer-open">
+        <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+        
+        <!-- Page content -->
+        <div class="drawer-content flex flex-col p-4">
+            <div class="w-full navbar bg-base-100 rounded-lg mb-4">
+                <div class="flex-none lg:hidden">
+                    <label for="sidebar-drawer" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </label>
+                </div>
+                <div class="flex-1">
+                    <h2 id="game-title" class="text-2xl font-bold">Escape Room Challenge</h2>
+                </div>
+                <div class="flex-none">
+                    <button id="restart-button" class="btn btn-sm btn-outline">Start Over</button>
+                </div>
+            </div>
+
+            <!-- Game Container -->
+            <div id="game-container" class="p-2">
+                <!-- Current level will be shown here -->
+            </div>
+        </div>
+        
+        <!-- Sidebar content -->
+        <div class="drawer-side z-10">
+            <label for="sidebar-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="p-4 w-80 min-h-full bg-base-200">
+                <div class="flex flex-col h-full">
+                    <!-- Theme selector -->
+                    <div class="dropdown mb-72">
+                        <div tabindex="0" role="button" class="btn m-1">
+                          Theme
+                          <svg
+                            width="12px"
+                            height="12px"
+                            class="inline-block h-2 w-2 fill-current opacity-60"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 2048 2048">
+                            <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                          </svg>
+                        </div>
+                        <ul tabindex="0" class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+                          <li>
+                            <input
+                              type="radio"
+                              name="theme-dropdown"
+                              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                              aria-label="Default"
+                              value="default" />
+                          </li>
+                          <li>
+                            <input
+                              type="radio"
+                              name="theme-dropdown"
+                              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                              aria-label="Retro"
+                              value="retro" />
+                          </li>
+                          <li>
+                            <input
+                              type="radio"
+                              name="theme-dropdown"
+                              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                              aria-label="Cyberpunk"
+                              value="cyberpunk" />
+                          </li>
+                          <li>
+                            <input
+                              type="radio"
+                              name="theme-dropdown"
+                              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                              aria-label="Valentine"
+                              value="valentine" />
+                          </li>
+                          <li>
+                            <input
+                              type="radio"
+                              name="theme-dropdown"
+                              class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                              aria-label="Aqua"
+                              value="aqua" />
+                          </li>
+                        </ul>
+                      </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <!-- Original landing page content -->
+                    <div id="landing-page">
+                        <h1 class="text-2xl font-bold mb-6">Escape Room Challenge</h1>
+                        
+                        <div class="mb-6">
+                            <p class="mb-4">Welcome to the digital escape room experience! Choose a scenario below or upload your own JSON file.</p>
+                            
+                            <div class="form-control w-full">
+                                <label class="label">
+                                    <span class="label-text">Select a pre-made scenario</span>
+                                </label>
+                                <select id="scenario-select" class="select select-bordered">
+                                    <option disabled selected>Choose a scenario</option>
+                                    <option value="puzzles.json">The Mysterious Lab</option>
+                                    <option value="haunted-mansion.json">Haunted Mansion</option>
+                                    <option value="space-station.json">Space Station Omega</option>
+                                </select>
+                            </div>
+                            
+                            <div class="divider">OR</div>
+                            
+                            <div class="form-control w-full">
+                                <label class="label">
+                                    <span class="label-text">Upload your own JSON file</span>
+                                </label>
+                                <input type="file" id="file-upload" accept=".json" class="file-input file-input-bordered w-full" />
+                            </div>
+                        </div>
+                        
+                        <button id="start-game" class="btn btn-primary w-full">Start Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load puzzle data from JSON file
-            fetch('puzzles.json')
-                .then(response => response.json())
-                .then(data => {
-                    loadGame(data);
-                })
-                .catch(error => {
-                    console.error('Error loading puzzles:', error);
-                    document.getElementById('game-container').innerHTML = '<div class="container"><h1>Error</h1><p>Failed to load game data. Please try again later.</p></div>';
-                });
-        });
-
-        function loadGame(gameData) {
-            const gameContainer = document.getElementById('game-container');
-            
-            // Create level containers
-            gameData.levels.forEach((level, index) => {
-                const levelElement = document.createElement('div');
-                levelElement.id = level.id;
-                levelElement.className = `container ${index > 0 ? 'hidden' : ''}`;
-                
-                levelElement.innerHTML = `
-                    <h1>${level.title}</h1>
-                    <div class="story-text">${level.story}</div>
-                    
-                    <div class="password-form">
-                        <input type="text" id="password${index+1}" placeholder="Enter the password...">
-                        <button onclick="checkPassword(${index+1}, '${level.password}')">Submit</button>
-                        <p class="error-message" id="error${index+1}">Incorrect password. Try again.</p>
-                        <p class="hint">${level.hint}</p>
-                    </div>
-                `;
-                
-                gameContainer.appendChild(levelElement);
-            });
-            
-            // Create success container
-            const successElement = document.createElement('div');
-            successElement.id = 'success';
-            successElement.className = 'container hidden';
-            
-            successElement.innerHTML = `
-                <h1>${gameData.success.title}</h1>
-                <div class="story-text">${gameData.success.message}</div>
-                <p class="success-message">You've completed the challenge!</p>
-            `;
-            
-            gameContainer.appendChild(successElement);
-        }
-
-        function checkPassword(level, correctPassword) {
-            const passwordInput = document.getElementById(`password${level}`);
-            const errorMessage = document.getElementById(`error${level}`);
-            const enteredPassword = passwordInput.value.trim().toLowerCase();
-            
-            if (enteredPassword === correctPassword) {
-                // Hide current level
-                document.getElementById(`level${level}`).classList.add('hidden');
-                
-                // Show next level or success page
-                const nextLevel = level + 1;
-                const nextElement = document.getElementById(`level${nextLevel}`) || document.getElementById('success');
-                nextElement.classList.remove('hidden');
-                
-                // Reset input and error
-                passwordInput.value = '';
-                errorMessage.style.display = 'none';
-                
-                // Scroll to next section
-                nextElement.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // Show error message
-                errorMessage.style.display = 'block';
-                
-                // Shake effect for wrong password
-                passwordInput.classList.add('shake');
-                setTimeout(() => {
-                    passwordInput.classList.remove('shake');
-                }, 500);
-            }
-        }
-    </script>
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>

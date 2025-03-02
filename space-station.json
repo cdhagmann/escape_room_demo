@@ -1,0 +1,29 @@
+{
+  "levels": [
+    {
+      "id": "level1",
+      "title": "Airlock Malfunction",
+      "story": "Warning! Space Station Omega has experienced a critical systems failure. You are trapped in the outer research module with life support failing. To override the airlock, you must answer the security question: 'I'm found in the depths of space, but also in your home. I can be hot or cold. I'm always around, but you can never touch me. What am I?'",
+      "password": "air",
+      "hint": "You breathe it every day, but it's also in the vacuum of space..."
+    },
+    {
+      "id": "level2",
+      "title": "Navigation Systems",
+      "story": "The airlock opens, but the station's navigation systems are offline. You need to reboot the main computer to send a distress signal. The terminal flashes: 'Security verification required. Answer: I run but never walk. I have a mouth but never talk. I have a head but never weep. I have a bed but never sleep. What am I?'",
+      "password": "river",
+      "hint": "A natural flowing water body..."
+    },
+    {
+      "id": "level3",
+      "title": "Command Center",
+      "story": "You've reached the command center! To transmit the distress signal, you need to input the final override code. The captain's last log entry reads: 'In case of emergency, remember: It can be cracked, it can be made, it can be told, and it can be played. What is it?'",
+      "password": "joke",
+      "hint": "Something that makes you laugh..."
+    }
+  ],
+  "success": {
+    "title": "Rescue Inbound!",
+    "message": "Distress signal successfully transmitted! Sensors detect a rescue ship approaching. Estimated arrival: 10 minutes. Congratulations on your quick thinking and problem-solving skills, Officer. You've saved yourself and preserved valuable research data."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "levels": [
+    {
+      "id": "level1",
+      "title": "The Haunted Foyer",
+      "story": "You've entered the abandoned mansion on a dare, but the door slams shut behind you. The chandelier flickers ominously above. A dusty note on the entry table reads: 'To escape this mansion, you must solve the riddles of the dead. First tell me: I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?'",
+      "password": "echo",
+      "hint": "You might hear me in mountains or empty hallways..."
+    },
+    {
+      "id": "level2",
+      "title": "The Ghostly Library",
+      "story": "The floorboards creak as you enter the library. Books fly off shelves by invisible hands. A leather-bound journal opens itself, revealing a message written in faded ink: 'I have keys, but no locks. I have space, but no room. You can enter, but you can't go outside. What am I?'",
+      "password": "keyboard",
+      "hint": "You're using one right now..."
+    },
+    {
+      "id": "level3",
+      "title": "The Phantom's Study",
+      "story": "In the master's study, a ghostly figure sits at a desk, then vanishes. The temperature drops suddenly. The drawers of the desk open and close by themselves. A pocket watch on the desk ticks backward, and inside its cover is etched: 'I'm tall when I'm young, and I'm short when I'm old. What am I?'",
+      "password": "candle",
+      "hint": "I give light, but slowly disappear..."
+    }
+  ],
+  "success": {
+    "title": "Freedom at Last!",
+    "message": "With a final spectral wail, the mansion releases its hold on you. The front door swings open, revealing the moonlit night. You rush outside, the door slamming shut behind you, never to open again... at least, not for you."
+  }
+}
